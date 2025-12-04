@@ -73,7 +73,7 @@ struct Node* insertNodeAtOther (struct Node *head, int node, int position) {
     struct Node *new_node = NULL, *temp = head;
     
     if (position <= 1 || head == NULL) {
-        return insertNodeAtHead(head, node);
+        return insertNodeAtHead (head, node);
     } else {
         new_node = (struct Node*)malloc(sizeof(struct Node));
         for (int i=1; i < position-1 && temp->next != NULL; i+=1) {
@@ -111,7 +111,7 @@ struct Node* deleteNode (struct Node *head, int value) {
         printf ("\nList is empty !");
     } else if (head->data == value) {
         printf ("\n");
-        return deleteHeadNode(head);
+        return deleteHeadNode (head);
     }
     
     while (temp != NULL && temp->data != value) {
@@ -153,7 +153,7 @@ void printList (struct Node *head) {
     }
 }
 
-int main(void) {
+int main (void) {
     char check;
     int size, node, position;
     struct Node *head = NULL;
@@ -178,14 +178,14 @@ int main(void) {
         int opr;
         
         if (scanf ("%i", &opr) >= 1) {
-            switch(opr) {
+            switch (opr) {
                 case 1:
-                    printList(head);
+                    printList (head);
                     break;
                 case 2:
                     printf ("\nEnter the node to insert: ");
                     scanf ("%i", &node);
-                    head = insertNodeAtHead(head, node);
+                    head = insertNodeAtHead (head, node);
                     break;
                 case 3:
                     printf ("\nAt which position you want to enter the node ? ");
@@ -193,26 +193,26 @@ int main(void) {
                     printf ("\nEnter the node to insert: ");
                     scanf ("%i", &node);
                     
-                    head = insertNodeAtOther(head, node, position);
+                    head = insertNodeAtOther (head, node, position);
                     break;
                 case 4:
                     printf ("\nEnter the node to insert: ");
                     scanf ("%i", &node);
-                    head = insertNodeAtEnd(head, node);
+                    head = insertNodeAtEnd (head, node);
                     break;
                 case 5:
                     printf ("\nDo you want to delete the head node (YES-Y/NO-N) ? ");
                     char optn; scanf (" %c", &optn);
                     if (optn == 'Y' || optn == 'y')
-                        head = deleteHeadNode(head);
+                        head = deleteHeadNode (head);
                         break;
                 case 6:
                     printf ("\nEnter the node you want to delete: ");
                     scanf ("%i", &node);
-                    head = deleteNode(head, node);
+                    head = deleteNode (head, node);
                     break;
                 case 7:
-                    exit(0);
+                    exit (0);
                     break;
                 default:
                     printf ("\nInvalid entry !\n");
